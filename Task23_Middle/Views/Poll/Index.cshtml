@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+@helper CheckBox(string[] genres)
+{
+    foreach (string genre in genres)
+    {
+        <p><input type="checkbox" name="genres" value="@genre">@genre</p>
+    }
+}
+
+@helper RadioButtons(string[] words)
+{
+    foreach (string word in words)
+    {
+        <p><input name="wantback" type="radio" value="@word">@word</p>
+    }
+}
+
+<h2>Poll</h2>
+<form method="post">
+    <p>Your Name</p>
+    <input type="text" name="name" required />
+    <p>Choose which genres of books you like:</p>
+    @CheckBox(new string[] { "Adventure", "Detective", "Fantasy", "Thriller", "Drama", "Business", "Biographies", "Novels" })
+    <p>Visit our site again?</p>
+    @RadioButtons(new string[] { "Yes!", "No!", "Perhaps" })
+    <button type="submit">Send</button>
+</form>

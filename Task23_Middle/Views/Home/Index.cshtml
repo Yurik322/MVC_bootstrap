@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>Main</h2>
+@foreach ((string title, string text, DateTime date) news in ViewBag.News)
+{
+    <div class="article">
+        <h4>@news.title</h4>
+        <span>@news.date</span>
+        <p>
+            @news.text
+        </p>
+    </div>
+}
